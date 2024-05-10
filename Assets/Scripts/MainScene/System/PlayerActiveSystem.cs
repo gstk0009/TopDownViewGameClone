@@ -16,10 +16,10 @@ public class PlayerActiveSystem : MonoBehaviour
     {
         playerName.text = PlayerNameInputSystem.InputPlayerName;
 
-        if (selectPang)
+        if (selectPang && !selectKnight)
             pangObject.SetActive(selectPang);
 
-        if (selectKnight)
+        if (selectKnight && !selectPang)
             knightObject.SetActive(selectKnight);
     }
 }

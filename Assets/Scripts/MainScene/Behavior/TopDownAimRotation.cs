@@ -7,13 +7,18 @@ public class TopDownAimRotation : MonoBehaviour
     [SerializeField] private SpriteRenderer knightRenderer;
 
     private TopDownController controller;
+    PlayerActiveSystem activeSystem;
+
+    private bool selectPang = false;
+    private bool selectKnight = false;
 
     private void Awake()
     {
+        activeSystem = GetComponent<PlayerActiveSystem>();
         controller = GetComponent<TopDownController>();
     }
 
-    private void Start()
+    public void Start()
     {
         controller.OnLookEvent += OnAim;
     }
@@ -25,12 +30,15 @@ public class TopDownAimRotation : MonoBehaviour
 
     private void Rotate(Vector2 direction)
     {
+        selectPang = activeSystem.pangObject.activeSelf;
+        selectKnight = activeSystem.knightObject.activeSelf;
+
         float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        if(SelectPlayerSystem.selectPang)
+        if(selectPang && !selectKnight)
             pangRenderer.flipX = Mathf.Abs(rotZ) > 90;
 
-        if(SelectPlayerSystem.selectKnight)
+        if(selectKnight && !selectPang)
             knightRenderer.flipX = Mathf.Abs(rotZ) > 90;
     }
 }

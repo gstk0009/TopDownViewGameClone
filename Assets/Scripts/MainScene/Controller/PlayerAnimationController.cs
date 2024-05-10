@@ -12,7 +12,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     private readonly float magnituteThreshold = 0.5f;
     
-    protected void Start()
+    public void Start()
     {
         animator = GetComponentInChildren<Animator>();
         controller = GetComponent<TopDownController>();
