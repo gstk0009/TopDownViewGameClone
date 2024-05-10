@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerNameInputSystem : MonoBehaviour
 {
     public static bool isPossiblePlayerName;
+    public static string InputPlayerName;
     private TMP_InputField playerName;
 
     private void Awake()
@@ -16,6 +17,7 @@ public class PlayerNameInputSystem : MonoBehaviour
 
     public void PlayerName()
     {
+        InputPlayerName = playerName.text;
         if (playerName.text.Length >= 2 && playerName.text.Length <= 10)
         {
             isPossiblePlayerName = true;
