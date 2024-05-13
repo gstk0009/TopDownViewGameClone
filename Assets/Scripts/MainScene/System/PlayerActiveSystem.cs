@@ -8,13 +8,15 @@ public class PlayerActiveSystem : MonoBehaviour
 {
     public GameObject pangObject;
     public GameObject knightObject;
-    public Text playerName;
+    public Text InGamePlayerName;
+    public Text AttendPlayerNmae;
     private bool selectPang = SelectPlayerSystem.selectPang;
     private bool selectKnight = SelectPlayerSystem.selectKnight;
 
     private void Awake()
     {
-        playerName.text = PlayerNameInputSystem.InputPlayerName;
+        InGamePlayerName.text = PlayerNameInputSystem.InputPlayerName;
+        AttendPlayerNmae.text = PlayerNameInputSystem.InputPlayerName;
 
         if (selectPang && !selectKnight)
             pangObject.SetActive(selectPang);

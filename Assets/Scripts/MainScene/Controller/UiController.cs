@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UiController : MonoBehaviour
+public class UIController : MonoBehaviour
 {
     private bool isPause = false;
 

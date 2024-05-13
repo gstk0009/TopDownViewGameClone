@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class ChangePlayerNameSystem : MonoBehaviour
 {
-    Text playerName;
+    private Text PlayerName;
 
     private void Awake()
     {
-        playerName = GetComponent<Text>();
+        PlayerName = GetComponent<Text>();
     }
 
     public void ChangeName()
     {
         if (PlayerNameInputSystem.isPossiblePlayerName)
         {
-            playerName.text = PlayerNameInputSystem.InputPlayerName;
+            PlayerName.text = PlayerNameInputSystem.InputPlayerName;
         }
     }
 }
